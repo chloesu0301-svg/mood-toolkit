@@ -5,7 +5,7 @@ const C = {
   surface: "#161522",
   card: "#1e1c2e",
   border: "#2a2840",
-  accent: "#332618",
+  accent: "#e8c4a0",
   accentDim: "#c9a47e",
   muted: "#5c596e",
   mutedLight: "#7a7690",
@@ -33,19 +33,18 @@ const ROUTINES = {
     tagline: "Just the essentials. This is enough.",
     description: "Your nervous system needs gentleness. These steps will help stabilise you without overwhelm.",
     steps: [
-      { id: "get_up", icon: "🛏", title: "Get out of bed", detail: "Even just sitting on the edge counts. You've started." },
-      { id: "journal", icon: "📓", title: "Write in your journal", detail: "Offload whatever's in your head. No rules, no structure. Just write." },
-      { id: "music", icon: "🎵", title: "Put some music on", detail: "Something gentle or uplifting. Let it fill the space before you eat." },
+      { id: "get_up", icon: "🛏", title: "Get out of bed", detail: "Put on something gentle — soft music, warm lighting. Make your bed once you're up. That's a win.", suggestions: ["🎵 Soft music", "🕯 Warm lamp", "🛏 Make the bed"] },
       { id: "water", icon: "💧", title: "Drink a glass of water", detail: "Before anything else. Your body needs it." },
-      { id: "eat", icon: "🍳", title: "Eat something — anything", detail: "Hot chocolate, milk, toast, a smoothie, sausage. No pressure on nutrition today, just eat.", examples: ["☕ Hot chocolate", "🥛 Warm milk", "🍞 Toast", "🥤 Smoothie", "🌭 Sausage"] },
-      { id: "supplements", icon: "💊", title: "Take your supplements", detail: "With food so they absorb properly and don't upset your stomach." },
+      { id: "eat", icon: "🍳", title: "Eat something — anything", detail: "No pressure on nutrition today. Hot chocolate, toast, a smoothie — just eat.", examples: ["☕ Hot chocolate", "🥛 Warm milk", "🍞 Toast", "🥤 Smoothie", "🌭 Sausage"] },
+      { id: "outside", icon: "🚶", title: "Go for a walk", detail: "Even 10 minutes. Natural light and movement are the two most powerful mood regulators we know of." },
       { id: "shower", icon: "🚿", title: "Shower & brush teeth", detail: "A warm shower resets your nervous system. You'll feel different after." },
-      { id: "outside", icon: "🚶", title: "Step outside & walk", detail: "Even 10 minutes. Natural light and movement are the two most powerful mood regulators we know of." },
+      { id: "moisturise", icon: "🧴", title: "Moisturise", detail: "A small act of care for yourself. You're worth it even on hard days." },
     ],
     reassess: true,
     bonusSteps: [
-      { id: "skincare", icon: "✨", title: "Do your skincare", detail: "A small act of looking after yourself. You're worth it even on hard days." },
-      { id: "tidy", icon: "🧹", title: "Clean your room", detail: "A clear space helps your mind breathe.", suggestions: ["Put clothes away", "Put a wash on", "Tidy your desk", "Make your bed"] },
+      { id: "journal", icon: "📓", title: "Write in your journal", detail: "Offload whatever's in your head. No rules, no structure. Just write." },
+      { id: "skincare", icon: "✨", title: "Do your skincare", detail: "Take your time with it. A ritual, not a chore." },
+      { id: "tidy", icon: "🧹", title: "Put clothes away", detail: "Just clothes for now. A small bit of order helps your mind breathe." },
     ],
   },
   mid: {
@@ -58,11 +57,12 @@ const ROUTINES = {
     steps: [
       { id: "get_up", icon: "🛏", title: "Get up an hour before work", detail: "Give yourself a proper morning buffer. Don't let work eat your whole morning." },
       { id: "journal", icon: "📓", title: "Write in your journal", detail: "Start the day by clearing your head. Even five minutes helps." },
+      { id: "tidy", icon: "🧹", title: "Put clothes away & make bed", detail: "A clear space sets a clear tone for the day." },
       { id: "yoga", icon: "🧘", title: "15 minutes of yoga", detail: "Gentle movement to wake your body up. Not a workout — just a warm-up for the day." },
       { id: "eat", icon: "🥣", title: "Eat a nourishing breakfast", detail: "Something that feels good. Your usual is fine if it appeals." },
       { id: "supplements", icon: "💊", title: "Take your supplements", detail: "With food. Make it a habit you don't have to think about." },
       { id: "shower", icon: "🚿", title: "Shower & brush teeth", detail: "Get dressed properly. It signals to your brain that the day has begun." },
-      { id: "skincare", icon: "✨", title: "Do your skincare", detail: "Morning routine. Take your time with it." },
+      { id: "skincare", icon: "✨", title: "Skincare & moisturise", detail: "Morning routine. Take your time with it." },
       { id: "outside", icon: "🌿", title: "Walk to start your day", detail: "Put on a motivating podcast. Use the walk as your transition into the day.", suggestion: "🎧 Try a motivating podcast on the walk" },
     ],
     reassess: true,
@@ -79,26 +79,60 @@ const ROUTINES = {
     tagline: "You're in flow. Protect it.",
     description: "Your full routine is available to you. Notice what's working — future you will want to know.",
     steps: [
-      { id: "get_up", icon: "🛏", title: "Get up", detail: "Early. Don't negotiate with the snooze button today." },
+      { id: "get_up", icon: "🛏", title: "Get up at 6am", detail: "Early start. Don't negotiate with the snooze button today." },
       { id: "journal", icon: "📓", title: "Write in your journal", detail: "Start with gratitude or intention. Set the tone." },
-      { id: "yoga", icon: "🧘", title: "Full yoga session", detail: "30–45 minutes. This is your foundation.", time: "30–45 min" },
-      { id: "workout", icon: "💪", title: "Workout (3× per week)", detail: "Strength, cardio — whatever your plan says today.", time: "45–60 min" },
-      { id: "eat", icon: "🥗", title: "Full nutritious breakfast", detail: "Fuel yourself properly. You've earned it.", time: "20 min" },
+      { id: "tidy", icon: "🧹", title: "Put clothes away & make bed", detail: "Clear space, clear mind. Do it before anything else." },
+      { id: "yoga", icon: "🧘", title: "15 minutes of yoga", detail: "Wake your body up gently before the workout.", time: "15 min" },
+      { id: "workout", icon: "💪", title: "30 min workout (3× per week)", detail: "Or extend your yoga session on rest days. Whatever your plan says today.", time: "30 min" },
+      { id: "eat", icon: "🥗", title: "Nourishing breakfast", detail: "Fuel yourself properly. You've earned it." },
       { id: "supplements", icon: "💊", title: "Take your supplements", detail: "With food. Non-negotiable habit." },
       { id: "shower", icon: "🚿", title: "Shower & brush teeth", detail: "After your workout. Get dressed like you mean it." },
-      { id: "skincare", icon: "✨", title: "Do your skincare", detail: "Morning routine. Take your time." },
+      { id: "skincare", icon: "✨", title: "Skincare & moisturise", detail: "Morning routine. Take your time." },
       { id: "outside", icon: "🚶", title: "Walk to start your day", detail: "Your anchor habit. The transition from morning to day.", time: "20–30 min" },
       { id: "note", icon: "📝", title: "Note what's working", detail: "Write one sentence about why today feels manageable. Future-you will thank you." },
     ],
   },
 };
 
+// ─── Check-in Questions ───────────────────────────────────────────────────────
+// Scoring: negative total = low, 0-3 = mid, 4+ = high
+// HRV thresholds based on research: <50ms = low, 50-70ms = mid, >70ms = high
+// Body battery: <30 = low, 30-60 = mid, >60 = high
+// Sleep score: <60 = low, 60-79 = mid, 80+ = high
+
 const CHECK_IN_QUESTIONS = [
-  { id: "ate_well", question: "Did you eat properly yesterday?", yes: 1, no: -1 },
-  { id: "moved", question: "Did you move your body?", yes: 1, no: -1 },
-  { id: "room_tidy", question: "Is your space reasonably tidy?", yes: 1, no: -2 },
-  { id: "slept", question: "Did you sleep okay?", yes: 1, no: -2 },
-  { id: "routine", question: "Did you manage most of your normal routine?", yes: 2, no: -1 },
+  { id: "ate_well", question: "Did you eat properly yesterday?", yes: 1, no: -1, type: "yesno" },
+  { id: "moved", question: "Did you move your body?", yes: 1, no: -1, type: "yesno" },
+  { id: "room_tidy", question: "Is your space reasonably tidy?", yes: 1, no: -2, type: "yesno" },
+  { id: "slept", question: "Did you sleep okay?", yes: 1, no: -2, type: "yesno" },
+  { id: "routine", question: "Did you manage most of your normal routine?", yes: 2, no: -1, type: "yesno" },
+  {
+    id: "hrv", question: "What's your HRV this morning?", type: "select",
+    options: [
+      { label: "Not tracking", value: 0 },
+      { label: "Below 50ms (low)", value: -2 },
+      { label: "50–70ms (moderate)", value: 1 },
+      { label: "Above 70ms (strong)", value: 2 },
+    ]
+  },
+  {
+    id: "body_battery", question: "What's your body battery?", type: "select",
+    options: [
+      { label: "Not tracking", value: 0 },
+      { label: "Below 30 (depleted)", value: -2 },
+      { label: "30–60 (moderate)", value: 1 },
+      { label: "Above 60 (charged)", value: 2 },
+    ]
+  },
+  {
+    id: "sleep_score", question: "What was your sleep score last night?", type: "select",
+    options: [
+      { label: "Not tracking", value: 0 },
+      { label: "Below 60 (poor)", value: -2 },
+      { label: "60–79 (fair)", value: 1 },
+      { label: "80+ (good)", value: 2 },
+    ]
+  },
 ];
 
 const DAYS = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
@@ -156,35 +190,66 @@ function CheckInQuestions({ answers, onChange }) {
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
       {CHECK_IN_QUESTIONS.map(q => {
-        const ans = answers[q.id];
-        return (
-          <div key={q.id} style={{
-            display: "flex", justifyContent: "space-between", alignItems: "center",
-            padding: "13px 16px", borderRadius: 12,
-            background: ans === true ? C.highBg : ans === false ? C.lowBg : C.card,
-            border: `1px solid ${ans === true ? C.highBorder : ans === false ? C.lowBorder : C.border}`,
-            transition: "all 0.2s",
-          }}>
-            <span style={{ color: C.textSoft, fontSize: 14, lineHeight: 1.4 }}>{q.question}</span>
-            <div style={{ display: "flex", gap: 7, flexShrink: 0, marginLeft: 12 }}>
-              {[true, false].map(val => {
-                const selected = ans === val;
-                const label = val ? "Yes" : "No";
-                const selColor = val ? C.high : C.low;
-                return (
-                  <button key={label} onClick={() => onChange(q.id, val)} style={{
-                    padding: "5px 14px", borderRadius: 20, fontSize: 12, cursor: "pointer",
-                    border: selected ? "none" : `1px solid ${C.border}`,
-                    background: selected ? selColor : "transparent",
-                    color: selected ? C.bg : C.muted,
-                    fontWeight: selected ? 700 : 400, transition: "all 0.15s",
-                    fontFamily: "'DM Sans', sans-serif",
-                  }}>{label}</button>
-                );
-              })}
+        if (q.type === "yesno") {
+          const ans = answers[q.id];
+          return (
+            <div key={q.id} style={{
+              display: "flex", justifyContent: "space-between", alignItems: "center",
+              padding: "13px 16px", borderRadius: 12,
+              background: ans === true ? C.highBg : ans === false ? C.lowBg : C.card,
+              border: `1px solid ${ans === true ? C.highBorder : ans === false ? C.lowBorder : C.border}`,
+              transition: "all 0.2s",
+            }}>
+              <span style={{ color: C.textSoft, fontSize: 14, lineHeight: 1.4 }}>{q.question}</span>
+              <div style={{ display: "flex", gap: 7, flexShrink: 0, marginLeft: 12 }}>
+                {[true, false].map(val => {
+                  const selected = ans === val;
+                  const label = val ? "Yes" : "No";
+                  const selColor = val ? C.high : C.low;
+                  return (
+                    <button key={label} onClick={() => onChange(q.id, val)} style={{
+                      padding: "5px 14px", borderRadius: 20, fontSize: 12, cursor: "pointer",
+                      border: selected ? "none" : `1px solid ${C.border}`,
+                      background: selected ? selColor : "transparent",
+                      color: selected ? C.bg : C.muted,
+                      fontWeight: selected ? 700 : 400, transition: "all 0.15s",
+                      fontFamily: "'DM Sans', sans-serif",
+                    }}>{label}</button>
+                  );
+                })}
+              </div>
             </div>
-          </div>
-        );
+          );
+        }
+
+        if (q.type === "select") {
+          const ans = answers[q.id];
+          return (
+            <div key={q.id} style={{
+              padding: "13px 16px", borderRadius: 12,
+              background: C.card, border: `1px solid ${C.border}`,
+            }}>
+              <div style={{ color: C.textSoft, fontSize: 14, marginBottom: 10 }}>{q.question}</div>
+              <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
+                {q.options.map(opt => {
+                  const selected = ans === opt.value || (ans === undefined && opt.value === 0 && q.options[0].value === 0);
+                  const isSelected = answers[q.id] !== undefined ? answers[q.id] === opt.value : false;
+                  return (
+                    <button key={opt.label} onClick={() => onChange(q.id, opt.value)} style={{
+                      padding: "8px 14px", borderRadius: 10, fontSize: 13, cursor: "pointer", textAlign: "left",
+                      border: `1px solid ${isSelected ? C.accent : C.border}`,
+                      background: isSelected ? C.accent + "22" : C.surface,
+                      color: isSelected ? C.accent : C.muted,
+                      fontFamily: "'DM Sans', sans-serif", transition: "all 0.15s",
+                    }}>{opt.label}</button>
+                  );
+                })}
+              </div>
+            </div>
+          );
+        }
+
+        return null;
       })}
     </div>
   );
@@ -324,7 +389,6 @@ function RoutineView({ routine, onReset, onSaveJournal }) {
 
   return (
     <div>
-      {/* Header */}
       <div style={{
         borderRadius: 16, padding: "20px 22px", marginBottom: 20, textAlign: "center",
         background: routine.bg, border: `1px solid ${routine.border}`,
@@ -337,7 +401,6 @@ function RoutineView({ routine, onReset, onSaveJournal }) {
         <div style={{ color: C.muted, fontSize: 12, lineHeight: 1.65 }}>{routine.description}</div>
       </div>
 
-      {/* Progress */}
       {completed > 0 && (
         <div style={{ marginBottom: 14 }}>
           <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 6 }}>
@@ -350,14 +413,12 @@ function RoutineView({ routine, onReset, onSaveJournal }) {
         </div>
       )}
 
-      {/* Steps */}
       <div style={{ display: "flex", flexDirection: "column", gap: 8, marginBottom: 16 }}>
         {routine.steps.map(step => (
           <StepItem key={step.id} step={step} done={done[step.id]} onToggle={() => toggle(step.id)} color={routine.color} />
         ))}
       </div>
 
-      {/* Reassess */}
       {routine.reassess && (
         <div style={{ marginBottom: 16 }}>
           <ReassessBlock
@@ -368,7 +429,6 @@ function RoutineView({ routine, onReset, onSaveJournal }) {
         </div>
       )}
 
-      {/* Bonus steps (low day only, if feeling better) */}
       {showBonus && routine.bonusSteps && (
         <div style={{ marginBottom: 16 }}>
           <div style={{ color: routine.color, fontSize: 13, marginBottom: 10, fontWeight: 500 }}>
@@ -382,7 +442,6 @@ function RoutineView({ routine, onReset, onSaveJournal }) {
         </div>
       )}
 
-      {/* Completion message */}
       {completed > 0 && completed === total && (
         <div style={{
           padding: "14px 18px", borderRadius: 12, background: routine.bg,
@@ -394,7 +453,6 @@ function RoutineView({ routine, onReset, onSaveJournal }) {
         </div>
       )}
 
-      {/* Journal */}
       <Card style={{ marginBottom: 14 }}>
         <div style={{ color: C.textSoft, fontSize: 13, marginBottom: 10, fontWeight: 500 }}>
           📓 How are you feeling? (optional note)
@@ -465,7 +523,6 @@ function PatternView({ history }) {
       <h2 style={{ fontFamily: "'Crimson Text', serif", color: C.text, fontSize: 24, fontWeight: 400, margin: "0 0 4px" }}>Your patterns</h2>
       <p style={{ color: C.muted, fontSize: 13, marginBottom: 20 }}>{history.length} days logged. Keep going — cycles take a few weeks to appear.</p>
 
-      {/* 28-day grid */}
       <Card style={{ marginBottom: 14 }}>
         <div style={{ color: C.textSoft, fontSize: 12, marginBottom: 12, fontWeight: 500 }}>Last 28 days</div>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(7, 1fr)", gap: 4, marginBottom: 6 }}>
@@ -489,7 +546,6 @@ function PatternView({ history }) {
         </div>
       </Card>
 
-      {/* Selected day */}
       {selected && (
         <div style={{
           borderRadius: 14, padding: "16px 18px", marginBottom: 14,
@@ -515,7 +571,6 @@ function PatternView({ history }) {
         </div>
       )}
 
-      {/* Stats */}
       {last7.length >= 3 && (
         <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 10, marginBottom: 14 }}>
           {[
@@ -531,7 +586,6 @@ function PatternView({ history }) {
         </div>
       )}
 
-      {/* Day of week bars */}
       {history.length >= 7 && (
         <Card>
           <div style={{ color: C.textSoft, fontSize: 12, marginBottom: 14, fontWeight: 500 }}>Average mood by day of week</div>
@@ -565,29 +619,54 @@ function PatternView({ history }) {
 
 // ─── Customise View ───────────────────────────────────────────────────────────
 
+function StepEditor({ steps, onChange, color }) {
+  const update = (idx, field, val) => onChange(steps.map((x, i) => i === idx ? { ...x, [field]: val } : x));
+  const remove = (idx) => onChange(steps.filter((_, i) => i !== idx));
+  const add = () => onChange([...steps, { id: `c_${Date.now()}`, icon: "⭐", title: "", detail: "", time: "" }]);
+
+  return (
+    <div>
+      <div style={{ display: "flex", flexDirection: "column", gap: 10, marginBottom: 14 }}>
+        {steps.map((step, idx) => (
+          <div key={step.id} style={{ background: C.card, borderRadius: 12, padding: "13px 15px", border: `1px solid ${C.border}` }}>
+            <div style={{ display: "flex", gap: 8, marginBottom: 8, alignItems: "center" }}>
+              <input value={step.icon} onChange={e => update(idx, "icon", e.target.value)} style={{ width: 34, background: C.surface, border: `1px solid ${C.border}`, borderRadius: 8, padding: "4px 4px", color: C.text, fontSize: 16, textAlign: "center" }} />
+              <input value={step.title} onChange={e => update(idx, "title", e.target.value)} placeholder="Step title" style={{ flex: 1, background: C.surface, border: `1px solid ${C.border}`, borderRadius: 8, padding: "6px 10px", color: C.text, fontSize: 14, fontFamily: "'DM Sans', sans-serif" }} />
+              <input value={step.time || ""} onChange={e => update(idx, "time", e.target.value)} placeholder="Time" style={{ width: 60, background: C.surface, border: `1px solid ${C.border}`, borderRadius: 8, padding: "6px 8px", color: C.muted, fontSize: 11, fontFamily: "'DM Sans', sans-serif" }} />
+              <button onClick={() => remove(idx)} style={{ background: "transparent", border: "none", color: C.low, cursor: "pointer", fontSize: 20, lineHeight: 1 }}>×</button>
+            </div>
+            <input value={step.detail} onChange={e => update(idx, "detail", e.target.value)} placeholder="Description or encouragement" style={{ width: "100%", background: C.surface, border: `1px solid ${C.border}`, borderRadius: 8, padding: "6px 10px", color: C.muted, fontSize: 12, fontFamily: "'DM Sans', sans-serif", boxSizing: "border-box" }} />
+          </div>
+        ))}
+      </div>
+      <button onClick={add} style={{ width: "100%", padding: "10px", borderRadius: 10, border: `1px dashed ${C.border}`, background: "transparent", color: C.muted, cursor: "pointer", fontSize: 13, marginBottom: 14, fontFamily: "'DM Sans', sans-serif" }}>+ Add step</button>
+    </div>
+  );
+}
+
 function CustomiseView({ customRoutines, onSave }) {
   const [editing, setEditing] = useState(null);
   const [steps, setSteps] = useState([]);
+  const [bonusSteps, setBonusSteps] = useState([]);
   const [saved, setSaved] = useState(false);
+  const [activeTab, setActiveTab] = useState("main");
 
   const startEditing = (level) => {
     const r = customRoutines[level] || ROUTINES[level];
     setSteps(r.steps.map(s => ({ ...s })));
-    setEditing(level); setSaved(false);
+    setBonusSteps((customRoutines[level]?.bonusSteps || ROUTINES[level]?.bonusSteps || []).map(s => ({ ...s })));
+    setEditing(level); setSaved(false); setActiveTab("main");
   };
 
-  const update = (idx, field, val) => setSteps(s => s.map((x, i) => i === idx ? { ...x, [field]: val } : x));
-  const remove = (idx) => setSteps(s => s.filter((_, i) => i !== idx));
-  const add = () => setSteps(s => [...s, { id: `c_${Date.now()}`, icon: "⭐", title: "", detail: "", time: "" }]);
-
   const handleSave = () => {
-    onSave(editing, steps.filter(s => s.title.trim()));
+    onSave(editing, steps.filter(s => s.title.trim()), bonusSteps.filter(s => s.title.trim()));
     setSaved(true);
     setTimeout(() => { setEditing(null); setSaved(false); }, 900);
   };
 
   if (editing) {
     const r = ROUTINES[editing];
+    const hasBonusSteps = !!r.bonusSteps;
     return (
       <div>
         <button onClick={() => setEditing(null)} style={{ background: "transparent", border: "none", color: C.muted, cursor: "pointer", fontSize: 14, marginBottom: 16, fontFamily: "'DM Sans', sans-serif" }}>← Back</button>
@@ -598,20 +677,31 @@ function CustomiseView({ customRoutines, onSave }) {
             <div style={{ color: C.muted, fontSize: 12 }}>Edit steps to match your life</div>
           </div>
         </div>
-        <div style={{ display: "flex", flexDirection: "column", gap: 10, marginBottom: 14 }}>
-          {steps.map((step, idx) => (
-            <div key={step.id} style={{ background: C.card, borderRadius: 12, padding: "13px 15px", border: `1px solid ${C.border}` }}>
-              <div style={{ display: "flex", gap: 8, marginBottom: 8, alignItems: "center" }}>
-                <input value={step.icon} onChange={e => update(idx, "icon", e.target.value)} style={{ width: 34, background: C.surface, border: `1px solid ${C.border}`, borderRadius: 8, padding: "4px 4px", color: C.text, fontSize: 16, textAlign: "center" }} />
-                <input value={step.title} onChange={e => update(idx, "title", e.target.value)} placeholder="Step title" style={{ flex: 1, background: C.surface, border: `1px solid ${C.border}`, borderRadius: 8, padding: "6px 10px", color: C.text, fontSize: 14, fontFamily: "'DM Sans', sans-serif" }} />
-                <input value={step.time || ""} onChange={e => update(idx, "time", e.target.value)} placeholder="Time" style={{ width: 60, background: C.surface, border: `1px solid ${C.border}`, borderRadius: 8, padding: "6px 8px", color: C.muted, fontSize: 11, fontFamily: "'DM Sans', sans-serif" }} />
-                <button onClick={() => remove(idx)} style={{ background: "transparent", border: "none", color: C.low, cursor: "pointer", fontSize: 20, lineHeight: 1 }}>×</button>
-              </div>
-              <input value={step.detail} onChange={e => update(idx, "detail", e.target.value)} placeholder="Description or encouragement" style={{ width: "100%", background: C.surface, border: `1px solid ${C.border}`, borderRadius: 8, padding: "6px 10px", color: C.muted, fontSize: 12, fontFamily: "'DM Sans', sans-serif", boxSizing: "border-box" }} />
-            </div>
-          ))}
-        </div>
-        <button onClick={add} style={{ width: "100%", padding: "10px", borderRadius: 10, border: `1px dashed ${C.border}`, background: "transparent", color: C.muted, cursor: "pointer", fontSize: 13, marginBottom: 14, fontFamily: "'DM Sans', sans-serif" }}>+ Add step</button>
+
+        {hasBonusSteps && (
+          <div style={{ display: "flex", gap: 3, background: C.card, borderRadius: 12, padding: 4, marginBottom: 20, border: `1px solid ${C.border}` }}>
+            {["main", "bonus"].map(t => (
+              <button key={t} onClick={() => setActiveTab(t)} style={{
+                flex: 1, padding: "8px", borderRadius: 9, border: "none", cursor: "pointer",
+                background: activeTab === t ? C.surface : "transparent",
+                color: activeTab === t ? C.text : C.muted,
+                fontSize: 12, fontWeight: activeTab === t ? 600 : 400,
+                fontFamily: "'DM Sans', sans-serif",
+              }}>
+                {t === "main" ? "Main steps" : "✦ Bonus steps"}
+              </button>
+            ))}
+          </div>
+        )}
+
+        {activeTab === "main" && <StepEditor steps={steps} onChange={setSteps} color={r.color} />}
+        {activeTab === "bonus" && hasBonusSteps && (
+          <div>
+            <p style={{ color: C.muted, fontSize: 12, marginBottom: 14, lineHeight: 1.6 }}>These appear when you check in as feeling better after the main routine.</p>
+            <StepEditor steps={bonusSteps} onChange={setBonusSteps} color={r.color} />
+          </div>
+        )}
+
         <Btn onClick={handleSave} style={{ width: "100%", background: saved ? C.high : C.accent }}>{saved ? "✓ Saved!" : "Save routine"}</Btn>
       </div>
     );
@@ -653,9 +743,9 @@ function CustomiseView({ customRoutines, onSave }) {
 
 export default function App() {
   const [tab, setTab] = useState("checkin");
-  const [step, setStep] = useState("questions"); // questions | routine
+  const [step, setStep] = useState("questions");
   const [answers, setAnswers] = useState({});
-  const [moodScore, setMoodScore] = useState(null); // derived
+  const [moodScore, setMoodScore] = useState(null);
   const [routine, setRoutine] = useState(null);
   const [todayEntry, setTodayEntry] = useState(null);
   const [history, setHistory] = useState([]);
@@ -666,8 +756,8 @@ export default function App() {
     (async () => {
       try {
         const [h, c] = await Promise.allSettled([
-          Promise.resolve(localStorage.getItem("toolkit_history") ? {value: localStorage.getItem("toolkit_history")} : null),
-          Promise.resolve(localStorage.getItem("toolkit_custom") ? {value: localStorage.getItem("toolkit_custom")} : null),
+          Promise.resolve(localStorage.getItem("toolkit_history") ? { value: localStorage.getItem("toolkit_history") } : null),
+          Promise.resolve(localStorage.getItem("toolkit_custom") ? { value: localStorage.getItem("toolkit_custom") } : null),
         ]);
         if (h.status === "fulfilled" && h.value) setHistory(JSON.parse(h.value.value));
         if (c.status === "fulfilled" && c.value) setCustomRoutines(JSON.parse(c.value.value));
@@ -677,21 +767,28 @@ export default function App() {
   }, []);
 
   const handleAnswer = (id, val) => setAnswers(a => ({ ...a, [id]: val }));
+
   const allAnswered = CHECK_IN_QUESTIONS.every(q => answers[q.id] !== undefined);
 
   const buildRoutine = () => {
     let score = 0;
     CHECK_IN_QUESTIONS.forEach(q => {
-      if (answers[q.id] !== undefined) score += answers[q.id] ? q.yes : q.no;
+      const ans = answers[q.id];
+      if (q.type === "yesno" && ans !== undefined) score += ans ? q.yes : q.no;
+      if (q.type === "select" && ans !== undefined) score += ans;
     });
-    // Map score to mood: typical range is -7 to +7
-    const derived = Math.round(((score + 7) / 14) * 9) + 1;
+
+    // Wider range now with HRV/battery/sleep: roughly -13 to +13
+    const derived = Math.round(((score + 13) / 26) * 9) + 1;
     const clamped = Math.max(1, Math.min(10, derived));
     setMoodScore(clamped);
 
     const key = clamped <= 4 ? "low" : clamped <= 7 ? "mid" : "high";
     const base = { ...ROUTINES[key] };
-    if (customRoutines[key]) base.steps = customRoutines[key].steps;
+    if (customRoutines[key]) {
+      base.steps = customRoutines[key].steps;
+      if (customRoutines[key].bonusSteps) base.bonusSteps = customRoutines[key].bonusSteps;
+    }
 
     const entry = { date: new Date().toLocaleDateString(), moodScore: clamped, answers, routine: key, journal: "" };
     setTodayEntry(entry);
@@ -708,8 +805,8 @@ export default function App() {
     try { localStorage.setItem("toolkit_history", JSON.stringify(newH)); } catch {}
   };
 
-  const handleCustomSave = (level, steps) => {
-    const updated = { ...customRoutines, [level]: { steps } };
+  const handleCustomSave = (level, steps, bonusSteps) => {
+    const updated = { ...customRoutines, [level]: { steps, bonusSteps } };
     setCustomRoutines(updated);
     try { localStorage.setItem("toolkit_custom", JSON.stringify(updated)); } catch {}
   };
@@ -734,7 +831,6 @@ export default function App() {
       <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
 
       <div style={{ width: "100%", maxWidth: 480 }}>
-        {/* Header */}
         <div style={{ textAlign: "center", marginBottom: 24 }}>
           <div style={{ color: C.accentDim, letterSpacing: 5, fontSize: 10, textTransform: "uppercase", marginBottom: 8 }}>Daily Toolkit</div>
           <h1 style={{ fontFamily: "'Crimson Text', serif", fontSize: 32, color: C.text, margin: 0, fontWeight: 400, lineHeight: 1.2 }}>
@@ -753,7 +849,6 @@ export default function App() {
         />
 
         <div style={{ background: C.surface, borderRadius: 20, padding: "26px 22px", border: `1px solid ${C.border}` }}>
-
           {tab === "checkin" && step === "questions" && (
             <div>
               <div style={{ marginBottom: 22 }}>
