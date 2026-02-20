@@ -5,7 +5,7 @@ const C = {
   surface: "#161522",
   card: "#1e1c2e",
   border: "#2a2840",
-  accent: "#e8c4a0",
+  accent: "#332618",
   accentDim: "#c9a47e",
   muted: "#5c596e",
   mutedLight: "#7a7690",
